@@ -1,12 +1,13 @@
-FROM ubuntu:19.04
+FROM python:3.12-slim-buster
 
-RUN apt-get install -y ssh \
-    wget \
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
     curl \
-    python3
+    && rm -rf /var/lib/apt/lists/*
 
 COPY . /app
 
-RUN chmod -R 777 /app
+RUN pip install --no-cache-dir flask
 
-CMD ["python3", "/app/run.py"]
+CMD ["python", "/app/main.py"]

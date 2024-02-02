@@ -38,7 +38,7 @@ def run_command():
     subprocess.call(shlex.split(command))
     return "Kommando ausgeführt\n"
 
-# Passwörter überprüfen
+# Auf Passwörter überprüfen
 @app.route('/register', methods=['POST'])
 def register():
     username = request.form['username']

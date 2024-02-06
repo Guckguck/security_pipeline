@@ -6,13 +6,11 @@ RUN apt-get update && \
     curl \
     python3 && \
     apt-get clean && \
-    && rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY . .
-
-RUN pip install --no-cache-dir flask
 
 RUN chmod -R 755 /app
 

@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, request, abort, json
 import subprocess
 
@@ -20,7 +19,7 @@ def upload_file():
     try:
         json.loads(file.decode('utf-8'))
     except json.JSONDecodeError:
-        abort(400, "Ungültig")
+        abort(400, "Invalides Format")
     return "Datei hochgeladen\n"
 
 @app.route('/run', methods=['POST'])
@@ -34,4 +33,4 @@ def run_command():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    app.run(debug=False, host='127.0.0.1', port=5000)
